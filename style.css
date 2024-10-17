@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #140a11;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    justify-content: center;
+    margin: 20px auto;
+    gap: 5px; /* المسافة بين المربعات */
+    max-width: 340px; /* تحديد الحد الأقصى للعرض */
+}
+
+/* إعدادات المربعات */
+.cell {
+    background-color: #000000;
+    border: 2px solid #b8009f;
+    font-size: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    aspect-ratio: 1; /* الحفاظ على النسبة بين العرض والارتفاع */
+    transition: box-shadow 0.2s ease-in-out; /* إضافة تأثير الانتقال للتوهج */
+}
+
+.cell:hover, .cell:focus {
+    box-shadow: 0 0 15px 5px #b8009f; /* توهج حول المربع */
+}
+
+.cell:hover {
+    background-color: rgb(248, 145, 217); /* تغيير لون الخلفية عند تمرير المؤشر */
+}
+
+/* تنسيق الحرف X */
+.cell.X {
+    font-size: 5em; /* حجم الحرف */
+    color: rgb(255, 255, 255); /* لون الحرف */
+    text-shadow: 0 0 20px blue, 0 0 30px rgb(0, 34, 228); /* تأثير التوهج الأزرق */
+}
+
+/* تنسيق الحرف O */
+.cell.O {
+    font-size: 5em; /* حجم الحرف */
+    color: rgb(255, 255, 255); /* لون الحرف */
+    text-shadow: 0 0 10px rgb(255, 0, 0), 0 0 30px rgb(255, 0, 0); /* تأثير التوهج الأحمر */
+}
+
+/* تنسيق زر إعادة التعيين */
+#resetButton {
+    background-color: #000000;
+    color: #ffffff; /* لون النص */
+    border: 2px solid #b8009f;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease-in-out; /* إضافة تأثير الانتقال للتوهج */   
+}
+
+/* تأثير التوهج عند تمرير الماوس فوق الزر */
+#resetButton:hover {
+    box-shadow: 0 0 15px 5px #b8009f; /* توهج حول الزر */
+}
+
+/* تنسيق النص للحالة */
+#status {
+    color: #ffffff; /* لون النص */
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgb(234, 0, 255); /* إضافة ظل للنص */
+}
+
+/* تنسيق العنوان */
+h1 {
+    color: #ffffff; /* لون النص */
+    font-size: 2em; /* حجم النص */
+    text-shadow: 2px 2px 4px rgb(234, 0, 255); /* إضافة ظل للنص */
+}
+
+/* تنسيق الخلية الفائزة */
+.winning-cell {
+    color: #ffffff; /* لون النص */
+    text-shadow: 0 0 10px rgb(0, 201, 0); /* توهج أخضر */
+}
+
+/* إعدادات استجابة للموقع */
+@media (max-width: 600px) {
+    .cell {
+        font-size: 3em; /* تقليل حجم الحرف للأجهزة الصغيرة */
+    }
+
+    .container {
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #status {
+        font-size: 1em;
+    }
+}
